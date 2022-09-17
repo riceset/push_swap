@@ -18,6 +18,11 @@ First, clone this repository and `cd` into it:
 ```zsh
 $ git clone https://github.com/riceset/push_swap; cd push_swap
 ```
+As this project uses the `libft` you will have to clone it on the root of the repository as well:
+
+```zsh
+$ git clone https://github.com/riceset/libft
+```
 
 Compile the executable file with:
 
@@ -29,13 +34,13 @@ $ make
 Run the program passing a list of numbers to be sorted:
 
 
-```sh
+```zsh
 $ ./push_swap 88 543 17 999 42
 ```
 
 The program will print the operations used to sort the list:
 
-```sh
+```zsh
 ra
 ra
 pb
