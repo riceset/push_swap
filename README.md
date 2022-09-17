@@ -26,14 +26,14 @@ $ make
 ```
 
 ## Usage
-Run the program passing a list of numbers to be sorted.
+Run the program passing a list of numbers to be sorted:
 
 
 ```sh
 $ ./push_swap 88 543 17 999 42
 ```
 
-The program will print the operations used to sort the list.
+The program will print the operations used to sort the list:
 
 ```sh
 ra
