@@ -56,3 +56,6 @@ pa
 - swap (swaps the first 2 elements of a stack)
 - rotate (sends the first element of a stack to the end of the same stack)
 - reverse rotate (sends the last element of a stack to the beginning of the same stack)
+
+## Observations
+In my project, I implemented stacks (an abstract data structure) using a ***circular doubly linked list***. In this model, the `sentinel` is the node between the first and the last node. Also, each node within the list has a pointer point to the next and the previous node.
