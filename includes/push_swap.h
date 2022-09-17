@@ -6,14 +6,15 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:16:06 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:43:23 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 16:03:13 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "circular_doubly_ll/circular_doubly_ll.h"
+# include "cdll.h"
+# include "libft.h"
 
 # define SUCCESS 0
 # define ERROR 1
@@ -23,13 +24,11 @@ void	sort_any(t_node **stack_a, t_node **stack_b);
 void	sort_3(t_node **stack_a);
 bool	sort(t_node **stack_a, t_node **stack_b);
 bool	is_sorted(t_node *stack_a);
-bool	ft_is_overlapping(t_node **stack);
+bool	is_overlapping(t_node **stack);
 bool	inserted_argv_to_list(char **argv, t_node **stack);
-int		ft_improved_atoi(char *str, bool *error);
-bool	ft_stacksinit(char **argv, t_node **stack_a, t_node **stack_b);
-bool	ft_puterror(void);
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
+int		improved_atoi(char *str, bool *error);
+bool	stacksinit(char **argv, t_node **stack_a, t_node **stack_b);
+bool	puterror(void);
 
 void	swap(t_node **stack);
 void	sa(t_node **stack_a);

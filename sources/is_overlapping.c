@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   is_overlapping.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:09:51 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:51:23 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:02:54 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:03:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+bool	is_overlapping(t_node **stack)
 {
-	const char	*p;
+	t_node	*out_trav;
+	t_node	*in_trav;
 
-	p = s;
-	while (*p)
-		p++;
-	return ((size_t)(p - s));
+	out_trav = *stack;
+	while (!out_trav->is_sentinel)
+	{
+		in_trav = out_trav->next;
+		while (!in_trav->is_sentinel)
+		{
+			if (in_trav->content == out_trav->content)
+				return (true);
+			in_trav = in_trav->next;
+		}
+		out_trav = out_trav->next;
+	}
+	return (false);
 }

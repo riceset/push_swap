@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   insert_argv_to_list.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:21:55 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 23:37:22 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:03:44 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 15:59:42 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_node **head)
+bool	inserted_argv_to_list(char **argv, t_node **stack)
 {
-	t_node	*temp;
-	t_node	*trav;
+	int		i;
+	int		num;
+	bool	error;
 
-	trav = *head;
-	while (!trav->is_sentinel)
+	i = 1;
+	while (argv[i])
 	{
-		temp = trav->next;
-		free(trav);
-		trav = temp;
+		error = true;
+		num = improved_atoi(argv[i], &error);
+		if (error)
+			return (false);
+		cdll_lstadd_back(stack, cdll_lstnew(num));
+		i++;
 	}
-	free(trav);
-	*head = trav;
+	if (is_overlapping(stack))
+		return (false);
+	return (true);
 }

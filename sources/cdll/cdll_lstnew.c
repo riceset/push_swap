@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   cdll_lstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:07:56 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 22:42:39 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/08 14:14:07 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:08:42 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "cdll.h"
 
-bool	sort(t_node **stack_a, t_node **stack_b)
+t_node	*cdll_lstnew(int content)
 {
-	int	a_size;
+	t_node	*new;
 
-	a_size = (*stack_a)->prev->content;
-	if (a_size == 2)
-		sa(stack_a);
-	else if (a_size == 3)
-		sort_3(stack_a);
-	else if (3 < a_size && a_size <= 5)
-		sort_any(stack_a, stack_b);
-	else
-		radix_sort(stack_a, stack_b, a_size);
-	return (true);
+	new = malloc(1 * sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->compressed = 0;
+	new->is_sentinel = false;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

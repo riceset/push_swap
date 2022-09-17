@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freeall.c                                       :+:      :+:    :+:   */
+/*   cdll_lstinit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 23:45:23 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 23:46:32 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/08 14:20:11 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:08:35 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "cdll.h"
 
-void	ft_freeall(t_node **stack_a, t_node **stack_b)
+t_node	*cdll_lstinit(void)
 {
-	ft_lstclear(stack_a);
-	ft_lstclear(stack_b);
+	t_node	*sentinel;
+
+	sentinel = cdll_lstnew(0);
+	sentinel->compressed = INT_MIN;
+	sentinel->is_sentinel = true;
+	sentinel->next = sentinel;
+	sentinel->prev = sentinel;
+	return (sentinel);
 }

@@ -6,16 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:02:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:51:32 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 16:02:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-static int	ft_isdigit(int c)
-{
-	return ('0' <= c && c <= '9');
-}
+#include "push_swap.h"
 
 static bool	ft_isspace(char c)
 {
@@ -44,7 +39,7 @@ static char	*ft_sign_handling(char *str, int *sign)
 	return (str);
 }
 
-int	ft_improved_atoi(char *str, bool *error)
+int	improved_atoi(char *str, bool *error)
 {
 	long long	res;
 	int			sign;

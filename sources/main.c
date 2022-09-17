@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:18:54 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:44 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/05 17:18:38 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:05:20 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_node **head, t_node *new)
+int	main(int argc, char **argv)
 {
-	t_node	*sentinel;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
-	if ((*head)->is_sentinel)
+	(void)argc;
+	if (!stacksinit(argv, &stack_a, &stack_b))
 	{
-		ft_lstadd_first(head, new);
-		return ;
+		cdll_freeall(&stack_a, &stack_b);
+		return (ERROR);
 	}
-	sentinel = (*head)->prev;
-	new->next = *head;
-	new->prev = sentinel;
-	(*head)->prev = new;
-	sentinel->next = new;
-	sentinel->content++;
+	if (!is_sorted(stack_a))
+		sort(&stack_a, &stack_b);
+	cdll_freeall(&stack_a, &stack_b);
+	return (SUCCESS);
 }

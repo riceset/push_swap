@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstinit.c                                       :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:20:11 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:37 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:07:56 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 15:35:47 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-t_node	*ft_lstinit(void)
+bool	sort(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*sentinel;
+	int	a_size;
 
-	sentinel = ft_lstnew(0);
-	sentinel->compressed = INT_MIN;
-	sentinel->is_sentinel = true;
-	sentinel->next = sentinel;
-	sentinel->prev = sentinel;
-	return (sentinel);
+	a_size = (*stack_a)->prev->content;
+	if (a_size == 2)
+		sa(stack_a);
+	else if (a_size == 3)
+		sort_3(stack_a);
+	else if (3 < a_size && a_size <= 5)
+		sort_any(stack_a, stack_b);
+	else
+		radix_sort(stack_a, stack_b, a_size);
+	return (true);
 }

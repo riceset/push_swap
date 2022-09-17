@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinate_compression.c                           :+:      :+:    :+:   */
+/*   cdll_lstadd_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:05:38 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:50:39 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/08 14:18:54 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:08:20 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "cdll.h"
 
-void	coordinate_compression(t_node **stack)
+void	cdll_lstadd_front(t_node **head, t_node *new)
 {
-	t_node	*out_trav;
-	t_node	*in_trav;
+	t_node	*sentinel;
 
-	out_trav = *stack;
-	while (!out_trav->is_sentinel)
+	if ((*head)->is_sentinel)
 	{
-		in_trav = *stack;
-		while (!in_trav->is_sentinel)
-		{
-			if (out_trav->content > in_trav->content)
-				out_trav->compressed++;
-			in_trav = in_trav->next;
-		}
-		out_trav = out_trav->next;
+		cdll_lstadd_first(head, new);
+		return ;
 	}
+	sentinel = (*head)->prev;
+	new->next = *head;
+	new->prev = sentinel;
+	(*head)->prev = new;
+	sentinel->next = new;
+	sentinel->content++;
 }

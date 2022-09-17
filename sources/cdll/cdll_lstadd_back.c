@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   cdll_lstadd_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:19:30 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:42 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 16:07:35 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "cdll.h"
 
-void	ft_lstadd_back(t_node **head, t_node *new)
+void	cdll_lstadd_back(t_node **head, t_node *new)
 {
 	t_node	*tail;
 	t_node	*sentinel;
 
 	if ((*head)->is_sentinel)
 	{
-		ft_lstadd_first(head, new);
+		cdll_lstadd_first(head, new);
 		return ;
 	}
 	tail = (*head)->prev->prev;

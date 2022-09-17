@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   cdll_lstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:14:07 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:39 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/08 14:21:55 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:08:27 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "cdll.h"
 
-t_node	*ft_lstnew(int content)
+void	cdll_lstclear(t_node **head)
 {
-	t_node	*new;
+	t_node	*temp;
+	t_node	*trav;
 
-	new = malloc(1 * sizeof(t_node));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->compressed = 0;
-	new->is_sentinel = false;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	trav = *head;
+	while (!trav->is_sentinel)
+	{
+		temp = trav->next;
+		free(trav);
+		trav = temp;
+	}
+	free(trav);
+	*head = trav;
 }

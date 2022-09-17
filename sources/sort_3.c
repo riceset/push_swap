@@ -6,11 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:06:29 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:52:17 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 15:35:52 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	sort_3(t_node **stack_a)
 {

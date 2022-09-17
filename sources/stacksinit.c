@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_first.c                                  :+:      :+:    :+:   */
+/*   stacksinit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:18:34 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:43 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:06:07 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:02:21 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-void	ft_lstadd_first(t_node **head, t_node *new)
+bool	stacksinit(char **argv, t_node **stack_a, t_node **stack_b)
 {
-	(*head)->content++;
-	new->next = *head;
-	new->prev = *head;
-	(*head)->next = new;
-	(*head)->prev = new;
-	*head = (*head)->next;
+	*stack_a = cdll_lstinit();
+	*stack_b = cdll_lstinit();
+	if (!inserted_argv_to_list(argv, stack_a))
+		return (puterror());
+	coordinate_compression(stack_a);
+	return (true);
 }

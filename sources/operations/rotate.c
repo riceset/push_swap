@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:00:33 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:50:03 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:00:03 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 15:36:18 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	reverse_rotate(t_node **stack)
+void	rotate(t_node **stack)
 {
 	t_node	*head;
 	t_node	*tail;
@@ -23,23 +23,23 @@ void	reverse_rotate(t_node **stack)
 	tail = (*stack)->prev->prev;
 	if (head == sentinel)
 		return ;
-	tail->prev->next = sentinel;
-	sentinel->prev = tail->prev;
-	tail->prev = sentinel;
-	tail->next = head;
-	sentinel->next = tail;
+	head->next->prev = sentinel;
+	sentinel->next = head->next;
+	head->next = sentinel;
 	head->prev = tail;
+	sentinel->prev = head;
+	tail->next = head;
 	*stack = sentinel->next;
 }
 
-void	rra(t_node **stack_a)
+void	ra(t_node **stack_a)
 {
-	reverse_rotate(stack_a);
-	ft_putstr_fd("rra\n", STDOUT_FILENO);
+	rotate(stack_a);
+	ft_putstr_fd("ra\n", STDOUT_FILENO);
 }
 
-void	rrb(t_node **stack_b)
+void	rb(t_node **stack_b)
 {
-	reverse_rotate(stack_b);
-	ft_putstr_fd("rrb\n", STDOUT_FILENO);
+	rotate(stack_b);
+	ft_putstr_fd("rb\n", STDOUT_FILENO);
 }

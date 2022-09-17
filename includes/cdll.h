@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circular_doubly_ll.h                               :+:      :+:    :+:   */
+/*   cdll.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:08:31 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 23:46:42 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 16:06:54 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CIRCULAR_DOUBLY_LL_H
-# define CIRCULAR_DOUBLY_LL_H
+#ifndef CDLL_H
+# define CDLL_H
 
 # include <limits.h>
 # include <stdbool.h>
@@ -29,15 +29,12 @@ struct					s_node
 
 typedef struct s_node	t_node;
 
-t_node					*ft_lstnew(int content);
-size_t					ft_lstsize(t_node *head);
-t_node					*ft_lstlast(t_node *head);
-void					ft_lstadd_first(t_node **head, t_node *new);
-void					ft_lstadd_front(t_node **head, t_node *new);
-void					ft_lstadd_back(t_node **head, t_node *new);
-t_node					*ft_lstinit(void);
-void					ft_lstprint(t_node *head);
-void					ft_lstclear(t_node **head);
-void					ft_freeall(t_node **stack_a, t_node **stack_b);
+t_node					*cdll_lstnew(int content);
+void					cdll_lstadd_first(t_node **head, t_node *new);
+void					cdll_lstadd_front(t_node **head, t_node *new);
+void					cdll_lstadd_back(t_node **head, t_node *new);
+t_node					*cdll_lstinit(void);
+void					cdll_lstclear(t_node **head);
+void					cdll_freeall(t_node **stack_a, t_node **stack_b);
 
 #endif

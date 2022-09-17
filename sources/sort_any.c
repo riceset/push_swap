@@ -6,11 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:07:28 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/15 03:09:18 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 15:35:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	find_smallest_num_index(t_node **stack_a, int smallest_num_index)
 {

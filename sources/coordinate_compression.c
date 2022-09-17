@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   coordinate_compression.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:17:24 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:38 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:05:38 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 15:34:18 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-t_node	*ft_lstlast(t_node *head)
+void	coordinate_compression(t_node **stack)
 {
-	if (head->is_sentinel)
-		return (head);
-	return (head->prev->prev);
+	t_node	*out_trav;
+	t_node	*in_trav;
+
+	out_trav = *stack;
+	while (!out_trav->is_sentinel)
+	{
+		in_trav = *stack;
+		while (!in_trav->is_sentinel)
+		{
+			if (out_trav->content > in_trav->content)
+				out_trav->compressed++;
+			in_trav = in_trav->next;
+		}
+		out_trav = out_trav->next;
+	}
 }

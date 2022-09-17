@@ -6,11 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:08:49 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 23:18:37 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 15:35:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	get_bggst_cmprssd_dgts_bin(int bggst_cmprssd)
 {

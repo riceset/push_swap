@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_overlaping.c                                    :+:      :+:    :+:   */
+/*   cdll_lstadd_first.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:02:54 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:51:47 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/08 14:18:34 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 16:08:12 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "cdll.h"
 
-bool	ft_is_overlapping(t_node **stack)
+void	cdll_lstadd_first(t_node **head, t_node *new)
 {
-	t_node	*out_trav;
-	t_node	*in_trav;
-
-	out_trav = *stack;
-	while (!out_trav->is_sentinel)
-	{
-		in_trav = out_trav->next;
-		while (!in_trav->is_sentinel)
-		{
-			if (in_trav->content == out_trav->content)
-				return (true);
-			in_trav = in_trav->next;
-		}
-		out_trav = out_trav->next;
-	}
-	return (false);
+	(*head)->content++;
+	new->next = *head;
+	new->prev = *head;
+	(*head)->next = new;
+	(*head)->prev = new;
+	*head = (*head)->next;
 }

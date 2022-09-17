@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:16:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:22:41 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/09/14 16:08:19 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/09/17 15:35:26 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_doubly_ll.h"
+#include "push_swap.h"
 
-size_t	ft_lstsize(t_node *head)
+bool	is_sorted(t_node *stack_a)
 {
-	size_t	size;
-	t_node	*trav;
-
-	trav = head;
-	size = 0;
-	while (!trav->is_sentinel)
+	while (!stack_a->is_sentinel && !stack_a->next->is_sentinel)
 	{
-		size++;
-		trav = trav->next;
+		if (stack_a->content > stack_a->next->content)
+			return (false);
+		stack_a = stack_a->next;
 	}
-	return (size);
+	return (true);
 }
