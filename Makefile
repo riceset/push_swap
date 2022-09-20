@@ -6,17 +6,17 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 15:02:54 by tkomeno           #+#    #+#              #
-#    Updated: 2022/09/17 16:05:53 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/20 17:18:59 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap
 
-LIBFT			=	libft.a
-
 INCLUDES		=	-I ./includes -I ./libft/includes
 
 CFLAGS 			=	-Wall -Werror -Wextra $(INCLUDES)
+
+LIBFT_PATH 		= 	./libft
 
 FILES			=	main.c \
 					coordinate_compression.c \
@@ -48,20 +48,18 @@ OBJS 			=	$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -L./libft -lft
+$(NAME): $(OBJS)
+	$(MAKE) -C $(LIBFT_PATH)
+	$(CC) $(OBJS) -o $(NAME) -L$(LIBFT_PATH) -lft
 
 clean:
 	$(RM) $(OBJS)
-	$(MAKE) clean -C ./libft
+	$(MAKE) clean -C $(LIBFT_PATH)
 
 fclean:
 	$(RM) $(OBJS) $(NAME)
-	$(MAKE) fclean -C ./libft
+	$(MAKE) fclean -C $(LIBFT_PATH)
 
 re: fclean all
-
-$(LIBFT):
-	$(MAKE) -C ./libft
 
 .PHONY: all clean fclean re
