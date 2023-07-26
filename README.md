@@ -3,14 +3,13 @@
 </h1>
 
 <p align="center">
-	<b><i>Because swap_push isn’t as natural.</i></b><br>
+  <img src="https://github.com/riceset/riceset/blob/main/42_badges/push_swape.png" alt="Push_swap 42 project badge"/>
 </p>
 
 ## Summary
-> This project will make you sort data on a stack, with a limited set of instructions, using
-> the lowest possible number of actions. To succeed you’ll have to manipulate various
-> types of algorithms and choose the most appropriate solution (out of many) for an
-> optimized data sorting.
+> <i>push_swap is a 42 school algorithm project where we must sort</i>
+> <i>a given list of random numbers with a limited set of instructions,</i>
+> <i>using the lowest possible number of actions.</i>
 
 ## Getting started
 First, clone this repository and `cd` into it:
