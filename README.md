@@ -49,6 +49,8 @@ pa
 pa
 ```
 
+![image](https://github.com/riceset/push_swap/assets/48802655/ba5606d3-586a-43ae-a8a3-2f8bc03078d3)
+
 ### Operations allowed to be used:
 
 - push (sends the top element of a stack to the top of another stack specified)
